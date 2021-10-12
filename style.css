@@ -49,3 +49,50 @@ input[type="submit"] {
 .load {
     display: none;
 }
+
+.container-city-information {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-city {
+    color: #404453;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.country {
+    color: #404453;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.date {
+    color: #999899;
+    font-size: 20px;
+}
+
+.temp-information {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.temp {
+    color: #3A3E4E;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.temp-max-min {
+    color: #3A3E4E;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.description {
+    color: #3A3E4E;
+    font-size: 20px;
+    font-weight: bold;
+}

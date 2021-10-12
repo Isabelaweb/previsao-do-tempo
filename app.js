@@ -17,26 +17,28 @@ $button.addEventListener("click", function() {
             const countryValue = data.sys.country;
             const descValue = data.weather[0].description;
             const currentDate = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', }).format(new Date())
-            const { temp, temp_max, temp_min } = data.main
+            const { temp, temp_max, temp_min, humidity } = data.main
             const { sunrise, sunset } = data.sys
 
-            const a = new Date(sunrise).getUTCHours()
-            console.log(a)
 
 
 
             const vouAparecerNoHtml = `
-                <h1 class="nameCity">${nameValue}</h1>
+                <div class= "container-city-information">
+                <h1 class="name-city">${nameValue},</h1>
                 <p class="country">${countryValue}</p>
+                </div>
                 <p class="date">${currentDate}</p>
-                <p class="description">${descValue}</p>
+                <div class="temp-information">
+                <p class="temp-max-min"> ${+temp_min.toFixed(0)}°C Mínima</p>
                 <p class="temp">${+temp.toFixed(0)}°C</p>
-                <p>${+temp_max.toFixed(0)}°C Máxima</p>
-                <p> ${+temp_min.toFixed(0)}°C Mínima</p>
+                <p class="temp-max-min">${+temp_max.toFixed(0)}°C Máxima</p>
+                </div>
+                <p class="description">${descValue}</p>
                 <hr class='line'> </hr>
-                <p></p>
-                <p>${sunrise}</p>
-                <p>${sunset}</p>
+                <p> umidade ${humidity}%</p>
+                <p> Nascer do Sol ${getHour(sunrise)}</p>
+                <p>  Pôr do Sol ${getHour(sunset)}</p>
 
             
 
@@ -58,6 +60,15 @@ $button.addEventListener("click", function() {
 
 
 })
+
+function getHour(timestamp) {
+    const dtFormat = new Intl.DateTimeFormat('pt-BR', {
+        timeStyle: 'short',
+        timeZone: 'America/Sao_Paulo'
+    });
+
+    return dtFormat.format(new Date(timestamp * 1000));
+}
 
 
 
