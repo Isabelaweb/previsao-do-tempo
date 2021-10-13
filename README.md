@@ -5,4 +5,4 @@ App feito 100% com JavaScript consumindo uma api da OpenWeatherMap.
 <img src="assets/resultado.PNG">
 
 ### Link onde foi publicado
-
+https://previsaodotempodesafio.netlify.app/
