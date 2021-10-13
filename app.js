@@ -2,10 +2,9 @@ const $button = document.querySelector(".button");
 const inputValue = document.querySelector(".inputValue");
 const dataAtual = document.querySelector(".date");
 const $load = document.querySelector(".load");
-// 36c6d7ee26bba92b944e3e4ecefc772e
+const $containerData = document.querySelector('.display')
 
 $button.addEventListener("click", function() {
-
     $load.style.display = 'inline'
     $button.style.display = 'none'
 
@@ -20,9 +19,6 @@ $button.addEventListener("click", function() {
             const { temp, temp_max, temp_min, humidity } = data.main
             const { sunrise, sunset } = data.sys
 
-
-
-
             const vouAparecerNoHtml = `
                 <div class= "container-city-information">
                 <h1 class="name-city">${nameValue},</h1>
@@ -35,30 +31,20 @@ $button.addEventListener("click", function() {
                 <p class="temp-max-min">${+temp_max.toFixed(0)}°C Máxima</p>
                 </div>
                 <p class="description">${descValue}</p>
+                <div class="container-line">
                 <hr class='line'> </hr>
-                <p> umidade ${humidity}%</p>
-                <p> Nascer do Sol ${getHour(sunrise)}</p>
-                <p>  Pôr do Sol ${getHour(sunset)}</p>
-
-            
-
-
+                </div>
+                <p class="details"> Umidade ${humidity}%</p>
+                <p class="details"> Nascer do Sol ${getHour(sunrise)}</p>
+                <p class="details"> Pôr do Sol ${getHour(sunset)}</p>
             `
-
-
-            document.querySelector('.display').innerHTML = vouAparecerNoHtml
-
+            $containerData.innerHTML = vouAparecerNoHtml
         })
-        .catch(err => alert("Nome da cidade errado !"))
+        .catch(err => alert("Oops, tente novamente, ocorreu um erro."))
         .finally(() => {
             $load.style.display = 'none'
             $button.style.display = 'block'
         })
-
-
-
-
-
 })
 
 function getHour(timestamp) {
@@ -69,12 +55,3 @@ function getHour(timestamp) {
 
     return dtFormat.format(new Date(timestamp * 1000));
 }
-
-
-
-// // promesas 
-// fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inputValue.value}&appid=36c6d7ee26bba92b944e3e4ecefc772e`)
-//     .then(response => response.json())
-//     .then(data => console.log(data))
-
-// .catch(err => alert("Nome da cidade errado !"))

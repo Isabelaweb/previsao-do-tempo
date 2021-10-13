@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: "Nunito", "sans-serif";
+    font-family: 'Roboto', sans-serif;
 }
 
 .container-input {
@@ -16,30 +16,28 @@ body {
     margin: 100px;
 }
 
-input[type="text"] {
+.inputValue {
     height: 50px;
     width: 400px;
     color: #AAABB2;
     background-color: #FAFAFA;
-    font-family: "Nunito", "sans-serif";
     text-align: center;
     font-size: 20px;
     border: 3px solid #A7A7A7;
-    border-radius: 2px;
+    border-radius: 4px;
     padding: 10px 10px;
 }
 
-input[type="submit"] {
+.button {
     height: 50px;
-    width: 100px;
     color: #FDFDFD;
     background-color: #4A494A;
     font-weight: bold;
-    font-family: "Nunito", "sans-serif";
     font-size: 20px;
-    border-radius: 2px;
+    border-radius: 4px;
     border: none;
     margin-top: 20px;
+    padding: 10px 22px;
 }
 
 .display {
@@ -95,4 +93,19 @@ input[type="submit"] {
     color: #3A3E4E;
     font-size: 20px;
     font-weight: bold;
+}
+
+.container-line {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.line {
+    width: 600px;
+    margin-bottom: 40px;
+}
+
+.details {
+    font-weight: 500;
 }
